@@ -33,3 +33,6 @@ func (engine *Engine) GET(pattern string, handler RouteHandler) {
 func (engine *Engine) POST(pattern string, handler RouteHandler) {
 	engine.addRoute("POST", pattern, handler)
 }
+func (engine *Engine) Run(addr string) (err error) {
+	return http.ListenAndServe(addr, engine)
+}
