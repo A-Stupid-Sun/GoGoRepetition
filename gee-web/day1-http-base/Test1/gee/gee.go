@@ -27,3 +27,9 @@ func (engine *Engine) addRoute(method string, pattern string, handle RouteHandle
 	engine.router[key] = handle
 	log.Printf("New Route Added: %q", key)
 }
+func (engine *Engine) GET(pattern string, handler RouteHandler) {
+	engine.addRoute("GET", pattern, handler)
+}
+func (engine *Engine) POST(pattern string, handler RouteHandler) {
+	engine.addRoute("POST", pattern, handler)
+}
