@@ -15,12 +15,16 @@ import (
 func main() {
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/hello", helloHandler)
+	http.HandleFunc("/gotest", gotestHandler)
 	log.Fatal(http.ListenAndServe(":9999", nil))
 }
 
 // handler echoes r.URL.Path
 func indexHandler(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintf(w, "URL.Path = %q\n", req.URL.Path)
+}
+func gotestHandler(w http.ResponseWriter, req *http.Request) {
+	fmt.Fprintf(w, "GoTestIndex, Hello from %s", req.RequestURI)
 }
 
 // handler echoes r.URL.Header

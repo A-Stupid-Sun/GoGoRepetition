@@ -10,9 +10,8 @@ package main
 
 import (
 	"fmt"
-	"net/http"
-
 	"gee"
+	"net/http"
 )
 
 func main() {
