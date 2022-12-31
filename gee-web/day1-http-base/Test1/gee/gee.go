@@ -2,6 +2,7 @@ package gee
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -20,5 +21,9 @@ func (engine *Engine) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	} else {
 		fmt.Fprint(w, "404 ERROR FROM URL  %q ", req.URL)
 	}
-
+}
+func (engine *Engine) addRoute(method string, pattern string, handle RouteHandler) {
+	key := method + "-" + pattern
+	engine.router[key] = handle
+	log.Printf("New Route Added: %q", key)
 }
