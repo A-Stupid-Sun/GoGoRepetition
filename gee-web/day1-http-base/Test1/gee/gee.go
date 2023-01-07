@@ -19,7 +19,7 @@ func (engine *Engine) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	if routeHandler, ok := engine.router[url]; ok {
 		routeHandler(w, req)
 	} else {
-		fmt.Fprint(w, "404 ERROR FROM URL  %q ", req.URL)
+		fmt.Fprintf(w, "404 ERROR FROM URL  %q ", req.URL)
 	}
 }
 func (engine *Engine) addRoute(method string, pattern string, handle RouteHandler) {
