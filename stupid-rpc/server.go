@@ -123,6 +123,7 @@ func (server *Server) handleRequest(cc codec.Codec, req *request, sending *sync.
 
 	server.sendResponse(cc, req.header, req.replyv.Interface(), sending)
 }
+
 func (server *Server) serveCodec(codec codec.Codec) {
 	sending := new(sync.Mutex) // make sure to send a complete response
 	wg := new(sync.WaitGroup)  // wait until all request are handled
