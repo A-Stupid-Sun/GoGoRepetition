@@ -41,6 +41,7 @@ func (c *GobCodec) Write(h *Header, body interface{}) (err error) {
 			_ = c.Close()
 		}
 	}()
+	//此时enc使用了 buf作为读缓冲
 	if err = c.enc.Encode(h); err != nil {
 		log.Println("rpc: gob error encoding header:", err)
 		return
